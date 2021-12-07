@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace pract1
 {
+    [Serializable]
     public class Car
     {
         private String carName;

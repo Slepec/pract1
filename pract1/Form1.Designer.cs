@@ -30,6 +30,7 @@ namespace pract1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,10 +46,20 @@ namespace pract1
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.cbLevel = new System.Windows.Forms.ComboBox();
+            this.rbBin = new System.Windows.Forms.RadioButton();
+            this.rbXml = new System.Windows.Forms.RadioButton();
+            this.rbJson = new System.Windows.Forms.RadioButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.currLang = new System.Windows.Forms.ToolStripSplitButton();
+            this.engLang = new System.Windows.Forms.ToolStripMenuItem();
+            this.ukrLang = new System.Windows.Forms.ToolStripMenuItem();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.statusStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv
@@ -60,159 +71,209 @@ namespace pract1
             this.Column4,
             this.Column2,
             this.Column3});
-            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.dgv, "dgv");
             this.dgv.Name = "dgv";
-            this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(1259, 556);
-            this.dgv.TabIndex = 0;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Номер лоту";
-            this.Column1.MinimumWidth = 6;
+            resources.ApplyResources(this.Column1, "Column1");
             this.Column1.Name = "Column1";
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Номер авто";
-            this.Column4.MinimumWidth = 6;
+            resources.ApplyResources(this.Column4, "Column4");
             this.Column4.Name = "Column4";
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Назва авто";
-            this.Column2.MinimumWidth = 6;
+            resources.ApplyResources(this.Column2, "Column2");
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Власник авто";
-            this.Column3.MinimumWidth = 6;
+            resources.ApplyResources(this.Column3, "Column3");
             this.Column3.Name = "Column3";
             // 
             // tbLotID
             // 
-            this.tbLotID.Location = new System.Drawing.Point(138, 24);
+            resources.ApplyResources(this.tbLotID, "tbLotID");
             this.tbLotID.Name = "tbLotID";
-            this.tbLotID.Size = new System.Drawing.Size(166, 22);
-            this.tbLotID.TabIndex = 1;
+            this.tbLotID.TextChanged += new System.EventHandler(this.tbLotID_TextChanged);
             // 
             // tbCarName
             // 
-            this.tbCarName.Location = new System.Drawing.Point(138, 105);
+            resources.ApplyResources(this.tbCarName, "tbCarName");
             this.tbCarName.Name = "tbCarName";
-            this.tbCarName.Size = new System.Drawing.Size(166, 22);
-            this.tbCarName.TabIndex = 2;
             // 
             // tbCarNum
             // 
-            this.tbCarNum.Location = new System.Drawing.Point(138, 66);
+            resources.ApplyResources(this.tbCarNum, "tbCarNum");
             this.tbCarNum.Name = "tbCarNum";
-            this.tbCarNum.Size = new System.Drawing.Size(166, 22);
-            this.tbCarNum.TabIndex = 3;
             // 
             // tbOwner
             // 
-            this.tbOwner.Location = new System.Drawing.Point(138, 147);
+            resources.ApplyResources(this.tbOwner, "tbOwner");
             this.tbOwner.Name = "tbOwner";
-            this.tbOwner.Size = new System.Drawing.Size(166, 22);
-            this.tbOwner.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(138, 195);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Додати";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(390, 83);
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(216, 44);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Примусова серіалізація";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 27);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 17);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Номер лоту";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 69);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Номер авто";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 108);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 17);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Назва авто";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 152);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 17);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Власник";
             // 
-            // panel1
+            // cbLevel
             // 
-            this.panel1.Controls.Add(this.tbOwner);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.tbLotID);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.tbCarName);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.tbCarNum);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 319);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1259, 237);
-            this.panel1.TabIndex = 11;
+            this.cbLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLevel.FormattingEnabled = true;
+            this.cbLevel.Items.AddRange(new object[] {
+            resources.GetString("cbLevel.Items"),
+            resources.GetString("cbLevel.Items1"),
+            resources.GetString("cbLevel.Items2"),
+            resources.GetString("cbLevel.Items3"),
+            resources.GetString("cbLevel.Items4"),
+            resources.GetString("cbLevel.Items5"),
+            resources.GetString("cbLevel.Items6")});
+            resources.ApplyResources(this.cbLevel, "cbLevel");
+            this.cbLevel.Name = "cbLevel";
+            this.cbLevel.SelectedValueChanged += new System.EventHandler(this.cbLevel_SelectedValueChanged);
+            // 
+            // rbBin
+            // 
+            resources.ApplyResources(this.rbBin, "rbBin");
+            this.rbBin.Name = "rbBin";
+            this.rbBin.TabStop = true;
+            this.rbBin.UseVisualStyleBackColor = true;
+            this.rbBin.CheckedChanged += new System.EventHandler(this.rbBin_CheckedChanged);
+            // 
+            // rbXml
+            // 
+            resources.ApplyResources(this.rbXml, "rbXml");
+            this.rbXml.Name = "rbXml";
+            this.rbXml.TabStop = true;
+            this.rbXml.UseVisualStyleBackColor = true;
+            this.rbXml.CheckedChanged += new System.EventHandler(this.rbXml_CheckedChanged);
+            // 
+            // rbJson
+            // 
+            resources.ApplyResources(this.rbJson, "rbJson");
+            this.rbJson.Name = "rbJson";
+            this.rbJson.TabStop = true;
+            this.rbJson.UseVisualStyleBackColor = true;
+            this.rbJson.CheckedChanged += new System.EventHandler(this.rbJson_CheckedChanged);
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // statusStrip2
+            // 
+            this.statusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel2,
+            this.currLang});
+            resources.ApplyResources(this.statusStrip2, "statusStrip2");
+            this.statusStrip2.Name = "statusStrip2";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
+            // 
+            // currLang
+            // 
+            this.currLang.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.currLang.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.engLang,
+            this.ukrLang});
+            resources.ApplyResources(this.currLang, "currLang");
+            this.currLang.Name = "currLang";
+            // 
+            // engLang
+            // 
+            this.engLang.Name = "engLang";
+            resources.ApplyResources(this.engLang, "engLang");
+            this.engLang.Click += new System.EventHandler(this.engLang_Click);
+            // 
+            // ukrLang
+            // 
+            this.ukrLang.Name = "ukrLang";
+            resources.ApplyResources(this.ukrLang, "ukrLang");
+            this.ukrLang.Click += new System.EventHandler(this.ukrLang_Click);
+            // 
+            // button3
+            // 
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1259, 556);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.statusStrip2);
+            this.Controls.Add(this.tbOwner);
+            this.Controls.Add(this.cbLevel);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.tbLotID);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.rbBin);
+            this.Controls.Add(this.tbCarName);
             this.Controls.Add(this.dgv);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.rbXml);
+            this.Controls.Add(this.tbCarNum);
+            this.Controls.Add(this.rbJson);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Перегляд";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Leave += new System.EventHandler(this.Form1_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.statusStrip2.ResumeLayout(false);
+            this.statusStrip2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -224,17 +285,27 @@ namespace pract1
         private System.Windows.Forms.TextBox tbCarNum;
         private System.Windows.Forms.TextBox tbOwner;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.RadioButton rbXml;
+        private System.Windows.Forms.RadioButton rbJson;
+        private System.Windows.Forms.RadioButton rbBin;
+        private System.Windows.Forms.ComboBox cbLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripSplitButton currLang;
+        private System.Windows.Forms.ToolStripMenuItem engLang;
+        private System.Windows.Forms.ToolStripMenuItem ukrLang;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 
