@@ -26,7 +26,7 @@ namespace pract1
         }
 
         Logger logger;
-        List<ParkingLot> listLots = new List<ParkingLot>();
+        static List<ParkingLot> listLots = new List<ParkingLot>();
         Prop p = new Prop();
         MyLogger mylogger;
         private void Form1_Load(object sender, EventArgs e)
@@ -249,6 +249,7 @@ namespace pract1
         private void engLang_Click(object sender, EventArgs e)
         {
             changeLanguage("en-US");
+      
             p.CurrentCulture = "en-US";
         }
 
@@ -265,16 +266,27 @@ namespace pract1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            List<FRData> fRData = new List<FRData>();
-            foreach(ParkingLot pl in listLots)
-            {
-                fRData.Add(new FRData(pl.LotID,pl.Car.CarNumber,pl.Car.CarName,pl.Owner.OwnerName));
-            }
-            ClassSer.toXML<List<FRData>>(ref fRData, "frData.xml");
+
+            Thread t1 = new Thread(serReportData);
+            t1.Start();
+            t1.Join();
+            logger.Info("Звіт відкривається");
+            mylogger.myLog(MyLogger.Levels.info, "Звіт відкривається");
             FormFR frmReport = new FormFR();
             frmReport.ShowDialog();
         }
-
+        private static void serReportData()
+        {
+            Console.WriteLine("serReportData початаок");
+            List<FRData> fRData = new List<FRData>();
+           
+            foreach (ParkingLot pl in listLots)
+            {
+                fRData.Add(new FRData(pl.LotID, pl.Car.CarNumber, pl.Car.CarName, pl.Owner.OwnerName));
+            }
+            ClassSer.toXML<List<FRData>>(ref fRData, "frData.xml");
+            Console.WriteLine("serReportData кінець");
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             RepExcel re = new RepExcel();
@@ -288,12 +300,12 @@ namespace pract1
             re.SetValue("LotsList", "B1", "Номер авто", " string");
             re.SetValue("LotsList", "C1", "Назва авто", " string");
             re.SetValue("LotsList", "D1", "Власник авто", " string");
-            for(int r = 0; r<listLots.Count;r++)
+            for(int i = 0; i<listLots.Count;i++)
             {
-                re.SetValue("LotsList", "A"+(r+2), listLots[r].LotID.ToString(), " string");
-                re.SetValue("LotsList", "B"+(r+2), listLots[r].Car.CarNumber.ToString(), " string");
-                re.SetValue("LotsList", "C"+(r+2), listLots[r].Car.CarName.ToString(), " string");
-                re.SetValue("LotsList", "D"+(r+2), listLots[r].Owner.OwnerName.ToString(), " string");
+                re.SetValue("LotsList", "A"+(i+2), listLots[i].LotID.ToString(), " string");
+                re.SetValue("LotsList", "B"+(i+2), listLots[i].Car.CarNumber.ToString(), " string");
+                re.SetValue("LotsList", "C"+(i+2), listLots[i].Car.CarName.ToString(), " string");
+                re.SetValue("LotsList", "D"+(i+2), listLots[i].Owner.OwnerName.ToString(), " string");
             }
             re.Save(path);
             re.CloseBook();
